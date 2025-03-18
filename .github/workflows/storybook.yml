@@ -38,7 +38,7 @@ jobs:
           path: storybook-static  # Upload Storybook static files
   
 
-   deploy-storybook:
+  deploy-storybook:
     needs: build-storybook
     runs-on: ubuntu-latest
     permissions:
