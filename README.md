@@ -2,6 +2,12 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
 
+## Two distinct app running on Github pages
+
+Storybook: https://sanjeetkumaritoutlook.github.io/storybook-app/
+
+Angular v19: https://sanjeetkumaritoutlook.github.io/angular-latest/
+
 ## Development server
 
 To start a local development server, run:
