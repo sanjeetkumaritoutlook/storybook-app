@@ -8,6 +8,27 @@ Storybook: https://sanjeetkumaritoutlook.github.io/storybook-app/
 
 Angular v19: https://sanjeetkumaritoutlook.github.io/angular-latest/
 
+## setup storybook from scratch
+manually create storybook-app folder
+
+Run:
+
+npm create storybook@latest
+
+select : Angular
+
+storybook runs on http://localhost:6006/
+
+npm run storybook
+
+## integrate in already installed angular project:
+
+Install Storybook in Your Angular  Project
+
+npx storybook@latest init
+
+It will create a .storybook folder with the basic config.
+
 ## Development server
 
 To start a local development server, run:

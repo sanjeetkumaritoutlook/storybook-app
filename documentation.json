@@ -35,7 +35,7 @@
     "components": [
         {
             "name": "AppComponent",
-            "id": "component-AppComponent-4b4a9df27d31118e642c0ad44ff11c4a8099aa93accc4202c7a2ab6c4b51c8b55339cd7076eb9f1ba7386b67fa2dec00c32e3b847af9d9a0d22627663a1c7b30",
+            "id": "component-AppComponent-8f0997ad2e2a5bb73dc1b28ed2128db8919f53aefc5ca22c17152cfd8f5552d7c4b99ac0f5b53e5ad6a875a1c0e9edea1e3a2abf0d81c1133f7fb24bdb6a873f",
             "file": "src/app/app.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -45,7 +45,7 @@
             "selector": "app-root",
             "styleUrls": [],
             "styles": [],
-            "template": "<h1>Welcome to {{title}}!</h1>\n\n<router-outlet />\n",
+            "template": " <h1>Welcome to {{title}}!</h1>\n<app-calculator></app-calculator>\n <router-outlet />\n",
             "templateUrl": [],
             "viewProviders": [],
             "hostDirectives": [],
@@ -73,12 +73,16 @@
             "imports": [
                 {
                     "name": "RouterOutlet"
+                },
+                {
+                    "name": "CalculatorComponent",
+                    "type": "component"
                 }
             ],
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  imports: [RouterOutlet],\r\n  template: `\r\n    <h1>Welcome to {{title}}!</h1>\r\n\r\n    <router-outlet />\r\n  `,\r\n  styles: [],\r\n})\r\nexport class AppComponent {\r\n  title = 'angular-latest';\r\n}\r\n",
+            "sourceCode": "import { Component } from '@angular/core';\r\nimport { RouterOutlet } from '@angular/router';\r\nimport { CalculatorComponent } from './calculator/calculator.component';\r\n@Component({\r\n  selector: 'app-root',\r\n  imports: [RouterOutlet,CalculatorComponent],\r\n  template: `\r\n    <h1>Welcome to {{title}}!</h1>\r\n   <app-calculator></app-calculator>\r\n    <router-outlet />\r\n  `,\r\n  styles: [],\r\n})\r\nexport class AppComponent {\r\n  title = 'angular-latest';\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -217,6 +221,99 @@
                     }
                 }
             }
+        },
+        {
+            "name": "CalculatorComponent",
+            "id": "component-CalculatorComponent-9ca9e20cf0a4db0aebb66bb055c8884a987418012f95fa0c2ee047a31792a16ffa03de90829726621ebc765efe1a95d122bc6bcad47e70f5e7a1454074b61a59",
+            "file": "src/app/calculator/calculator.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-calculator",
+            "styleUrls": [],
+            "styles": [
+                "\n      .calculator {\n        width: 200px;\n        padding: 10px;\n        border: 2px solid #ccc;\n        text-align: center;\n      }\n      .display {\n        font-size: 24px;\n        margin-bottom: 10px;\n      }\n      .buttons button {\n        width: 30px;\n        margin: 5px;\n      }\n    "
+            ],
+            "template": "<div class=\"calculator\">\n  <div class=\"display\">{{ displayValue }}</div>\n  <div class=\"buttons\">\n    <button *ngFor=\"let num of numbers\" (click)=\"onNumberClick(num)\">\n      {{ num }}\n    </button>\n  </div>\n</div>\n",
+            "templateUrl": [],
+            "viewProviders": [],
+            "hostDirectives": [],
+            "inputsClass": [
+                {
+                    "name": "displayValue",
+                    "defaultValue": "'0'",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 37,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [
+                {
+                    "name": "numbers",
+                    "defaultValue": "[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "[]",
+                    "indexKey": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 39
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "onNumberClick",
+                    "args": [
+                        {
+                            "name": "num",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 41,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "num",
+                            "type": "number",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "standalone": true,
+            "imports": [
+                {
+                    "name": "CommonModule",
+                    "type": "module"
+                }
+            ],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\n@Component({\r\n  selector: 'app-calculator',\r\n  imports: [CommonModule],\r\n  standalone: true,\r\n  template: `\r\n    <div class=\"calculator\">\r\n      <div class=\"display\">{{ displayValue }}</div>\r\n      <div class=\"buttons\">\r\n        <button *ngFor=\"let num of numbers\" (click)=\"onNumberClick(num)\">\r\n          {{ num }}\r\n        </button>\r\n      </div>\r\n    </div>\r\n  `,\r\n  styles: [\r\n    `\r\n      .calculator {\r\n        width: 200px;\r\n        padding: 10px;\r\n        border: 2px solid #ccc;\r\n        text-align: center;\r\n      }\r\n      .display {\r\n        font-size: 24px;\r\n        margin-bottom: 10px;\r\n      }\r\n      .buttons button {\r\n        width: 30px;\r\n        margin: 5px;\r\n      }\r\n    `,\r\n  ],\r\n})\r\nexport class CalculatorComponent {\r\n  @Input() displayValue: string = '0';\r\n\r\n  numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];\r\n\r\n  onNumberClick(num: number) {\r\n    this.displayValue = this.displayValue === '0' ? `${num}` : `${this.displayValue}${num}`;\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": "",
+            "stylesData": "\n      .calculator {\n        width: 200px;\n        padding: 10px;\n        border: 2px solid #ccc;\n        text-align: center;\n      }\n      .display {\n        font-size: 24px;\n        margin-bottom: 10px;\n      }\n      .buttons button {\n        width: 30px;\n        margin: 5px;\n      }\n    \n",
+            "extends": []
         },
         {
             "name": "HeaderComponent",
@@ -436,7 +533,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 13,
+        "count": 11,
         "status": "low",
         "files": [
             {
@@ -456,6 +553,15 @@
                 "name": "appConfig",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/calculator/calculator.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "CalculatorComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
                 "status": "low"
             },
             {
