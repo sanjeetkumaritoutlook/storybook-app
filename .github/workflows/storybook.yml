@@ -1,11 +1,14 @@
 name: Storybook CI
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-      - develop
-
+  workflow_dispatch:
+  
 jobs:
   build-storybook:
     runs-on: ubuntu-latest
